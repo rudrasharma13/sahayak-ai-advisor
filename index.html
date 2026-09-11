@@ -795,7 +795,7 @@
     </main>
 
     <script>
-        const GEMINI_API_KEY = "AQ.Ab8RN6JZGeC8idyFmQh_WscnoW9qMquPjEVWe1NB3TqoJbZhLw";
+        const GEMINI_API_KEY = "AQ.Ab8RN6KBVGeDtTPmd8U76BCCOWSp0BH7c-4bjKH_AHax_ji1dg";
         let isVoiceEnabled = true;
         let lastFailedPrompt = null;
 
@@ -1031,13 +1031,10 @@
             const selectedLang = document.getElementById('languageSelect').value;
 
             try {
-                const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${encodeURIComponent(GEMINI_API_KEY)}`;
-                
-                const response = await fetch(url, {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`, {
                     method: "POST",
                     headers: { 
-                        "Content-Type": "application/json",
-                        "x-goog-api-key": GEMINI_API_KEY
+                        "Content-Type": "application/json"
                     },
                     body: JSON.stringify({
                         system_instruction: {
